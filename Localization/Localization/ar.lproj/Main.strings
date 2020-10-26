@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "username:"; ObjectID = "9FS-0i-myQ"; */
+"9FS-0i-myQ.text" = "اسم المستخدم:";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "LH9-Gd-Wj3"; */
+"LH9-Gd-Wj3.text" = "مرحباً";
+
+/* Class = "UIButton"; normalTitle = "Change Language"; ObjectID = "dXI-AC-w6P"; */
+"dXI-AC-w6P.normalTitle" = "تغيير اللغة";
+
+/* Class = "UILabel"; text = "Password:"; ObjectID = "zL1-sZ-Tb5"; */
+"zL1-sZ-Tb5.text" = "كلمة المرور:";
