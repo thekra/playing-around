@@ -28,6 +28,16 @@ class ViewController: UIViewController {
            button.translatesAutoresizingMaskIntoConstraints = false
            return button
        }()
+    
+        let segueButton: UIButton = {
+            let button = UIButton()
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .black)
+            button.setTitle("Signin".localiz(), for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.addTarget(self, action: #selector(secondV), for: .touchUpInside)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
 
         let usernameLab: UILabel = {
            let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
@@ -115,11 +125,29 @@ class ViewController: UIViewController {
 
             self.view.addSubview(lab)
            self.view.addSubview(lanButton)
-
+            self.view.addSubview(segueButton)
+            
             let safe = view.safeAreaLayoutGuide
 
             NSLayoutConstraint.activate([
-
+                
+//                userTextF.topAnchor.constraint(equalTo: textFStackView.topAnchor),
+//                passwordTextF.topAnchor.constraint(equalTo: userTextF.bottomAnchor),
+//
+//                userTextF.leadingAnchor.constraint(equalTo: textFStackView.leadingAnchor),
+//                passwordTextF.leadingAnchor.constraint(equalTo: textFStackView.leadingAnchor),
+//
+//                userTextF.trailingAnchor.constraint(equalTo: textFStackView.trailingAnchor),
+//                passwordTextF.trailingAnchor.constraint(equalTo: textFStackView.trailingAnchor),
+//
+//                usernameLab.topAnchor.constraint(equalTo: selectorStackView.topAnchor),
+//                passwordLab.topAnchor.constraint(equalTo: usernameLab.bottomAnchor),
+//
+//                usernameLab.leadingAnchor.constraint(equalTo: selectorStackView.leadingAnchor),
+//                passwordLab.leadingAnchor.constraint(equalTo: selectorStackView.leadingAnchor),
+//
+//                usernameLab.trailingAnchor.constraint(equalTo: selectorStackView.trailingAnchor),
+//                passwordLab.trailingAnchor.constraint(equalTo: selectorStackView.trailingAnchor),
                 // MARK: - StackView Constraints
                StackView.topAnchor.constraint(equalTo: lab.bottomAnchor, constant: 150),
                StackView.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 10),
@@ -129,6 +157,10 @@ class ViewController: UIViewController {
                self.lanButton.topAnchor.constraint(equalTo: safe.topAnchor),
                self.lanButton.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 20),
 
+                // MARK: - Signin Button
+               self.segueButton.topAnchor.constraint(equalTo: StackView.bottomAnchor, constant: 50),
+                self.segueButton.leadingAnchor.constraint(equalTo: StackView.leadingAnchor),
+                self.segueButton.trailingAnchor.constraint(equalTo: StackView.trailingAnchor),
                 // MARK: - Welcome Label
                self.lab.topAnchor.constraint(equalTo: safe.topAnchor, constant: 130),
                self.lab.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
@@ -145,6 +177,10 @@ class ViewController: UIViewController {
            print(LanguageManager.shared.currentLanguage)
        }
 
+    @objc func secondV() {
+        let vc = SecondViewController()
+        self.present(vc, animated: true, completion: nil)
+    }
 
 
     @objc func changeLang() {
@@ -174,10 +210,7 @@ class ViewController: UIViewController {
                   view.transform = CGAffineTransform(scaleX: 1, y: 1)
                   view.alpha = 0
                }
-        
         })
-        
-
         
         let cancel = UIAlertAction(title: "Cancel".localiz(), style: .cancel, handler: { (action) -> Void in })
         alert.addAction(lan)
@@ -185,6 +218,5 @@ class ViewController: UIViewController {
 
         present(alert, animated: true, completion: nil)
     }
-    
 }
 
